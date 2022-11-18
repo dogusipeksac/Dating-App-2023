@@ -1,13 +1,12 @@
 package com.kube.datingapp2023;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 
 import com.kube.datingapp2023.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
+    //viewbinding ile findviewbyid kullanmadan direk xmle ulaşabiliriz.
     ActivityMainBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
