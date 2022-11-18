@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">DatingApp2023</string>
+    <string name="error_string">Error</string>
+    <string name="email_string">Email</string>
+    <string name="password_string">Password</string>
+    <string name="login_string">Login</string>
+    <string name="register_string">Register</string>
+    <string name="go_to_register_string">Go to register</string>
+    <string name="go_to_login_string">Go to login</string>
+    <string name="sign_out_string">Sign Out</string>
+
 </resources>

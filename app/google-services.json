@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "633618235466",
+    "project_id": "datingapp-79d69",
+    "storage_bucket": "datingapp-79d69.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:633618235466:android:aa761dc0ba42966cd8a6b3",
+        "android_client_info": {
+          "package_name": "com.kube.datingapp2023"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "633618235466-0neuk001r66kbk2ljone34h5d9rpng8c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5T6iNTiMVi8D9kWhMYsPWeOfN7XpGDJg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "633618235466-0neuk001r66kbk2ljone34h5d9rpng8c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
