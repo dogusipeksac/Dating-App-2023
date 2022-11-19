@@ -16,7 +16,9 @@ import com.kube.datingapp2023.R;
 public class AppRepository {
     private Application application;
     private MutableLiveData<FirebaseUser> userMutableLiveData;
+    private MutableLiveData<Boolean> logOutMutableLiveData;
     private FirebaseAuth firebaseAuth;
+
 
     public AppRepository() {}
 
@@ -24,6 +26,12 @@ public class AppRepository {
         this.application = application;
         this.firebaseAuth = FirebaseAuth.getInstance();
         userMutableLiveData = new MutableLiveData<>();
+        logOutMutableLiveData = new MutableLiveData<>();
+
+        if(firebaseAuth.getCurrentUser()!=null){
+            userMutableLiveData.postValue(firebaseAuth.getCurrentUser());
+            logOutMutableLiveData.postValue(false);
+        }
     }
 
     public void register(String email, String password) {
@@ -51,5 +59,13 @@ public class AppRepository {
                 });
 
     }
+    public void logOut(){
+        firebaseAuth.signOut();
+        logOutMutableLiveData.postValue(true);
+    }
+
     public MutableLiveData<FirebaseUser> getUserMutableLiveData() {return userMutableLiveData;}
+    public MutableLiveData<Boolean> getLogOutMutableLiveData() {return logOutMutableLiveData;}
+
+
 }

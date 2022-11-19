@@ -8,6 +8,7 @@ import android.widget.Toast;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.kube.datingapp2023.BaseActivity;
+import com.kube.datingapp2023.MainActivity;
 import com.kube.datingapp2023.authentication.viewmodel.LoginViewModel;
 import com.kube.datingapp2023.authentication.viewmodel.RegisterViewModel;
 import com.kube.datingapp2023.databinding.ActivityLoginBinding;
@@ -33,6 +34,7 @@ public class LoginActivity extends BaseActivity {
     public void  initObservable(){
         loginViewModel.getUserMutableLiveData().observe(this, firebaseUser -> {
             if (firebaseUser != null) {
+                startActivity(new Intent(this, MainActivity.class));
                 Toast.makeText(getApplicationContext(), "Login success", Toast.LENGTH_SHORT).show();
             }
         });
