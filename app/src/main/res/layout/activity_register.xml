@@ -4,19 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
     tools:context=".authentication.view.RegisterActivity">
     <EditText
+        android:layout_margin="5dp"
+        android:padding="10dp"
+        android:background="@drawable/rounded_edittext"
         android:hint="@string/email_string"
         android:id="@+id/email_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <EditText
+        android:layout_margin="5dp"
+        android:padding="10dp"
+        android:background="@drawable/rounded_edittext"
         android:hint="@string/password_string"
         android:id="@+id/password_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <Button
+        android:layout_margin="5dp"
+        android:padding="10dp"
+        android:background="@drawable/rounded_edittext"
         android:id="@+id/register_button"
         android:text="@string/register_string"
         android:layout_width="match_parent"
@@ -25,7 +35,7 @@
         android:gravity="center"
         android:textSize="20sp"
         android:textColor="@color/black"
-        android:id="@+id/register_tv"
+        android:id="@+id/login_tv"
         android:text="@string/go_to_login_string"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

@@ -53,5 +53,6 @@ public class RegisterActivity extends BaseActivity {
 
     public void initButtons() {
         binding.registerButton.setOnClickListener(view -> registerViewModel.register(binding.emailEt.getText().toString(), binding.passwordEt.getText().toString()));
+        binding.loginTv.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(),LoginActivity.class)));
     }
 }
