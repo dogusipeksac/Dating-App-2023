@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.kube.datingapp2023.BaseActivity;
@@ -30,6 +31,7 @@ public class LoginActivity extends BaseActivity {
     }
     public void  init(){
         loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
+        progressdialog.setTitle("Giriş yapılıyor....");
     }
     public void  initObservable(){
         loginViewModel.getUserMutableLiveData().observe(this, firebaseUser -> {
@@ -38,18 +40,20 @@ public class LoginActivity extends BaseActivity {
                 Toast.makeText(getApplicationContext(), "Login success", Toast.LENGTH_SHORT).show();
             }
         });
+        loginViewModel.getLogInProgressMutableLiveData().observe(this, logInBool -> {
+            if (logInBool){
+                progressdialog.show();
+            }else{
+                progressdialog.hide();
+            }
+        });
     }
     public void initButtons() {
         //buralar düzelticek base acitivty içinde yazılacak sayfa geçişleri
         binding.registerTv.setOnClickListener(view -> {
            startActivity(new Intent(this,RegisterActivity.class));
         });
-        binding.loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loginViewModel.login(binding.emailEt.getText().toString(), binding.passwordEt.getText().toString());
-            }
-        });
+        binding.loginButton.setOnClickListener(view -> loginViewModel.login(binding.emailEt.getText().toString(), binding.passwordEt.getText().toString()));
     }
 
 }

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.kube.datingapp2023.BaseActivity;
@@ -30,7 +31,7 @@ public class RegisterActivity extends BaseActivity {
 
     public void init() {
         registerViewModel = new ViewModelProvider(this).get(RegisterViewModel.class);
-
+        progressdialog.setTitle("Kayıt olunuyor....");
     }
 
     public void initObservable() {
@@ -38,6 +39,14 @@ public class RegisterActivity extends BaseActivity {
             if (firebaseUser != null) {
                 startActivity(new Intent(this, MainActivity.class));
                 Toast.makeText(getApplicationContext(), "User created", Toast.LENGTH_SHORT).show();
+            }
+        });
+        registerViewModel.getRegisterInProgressMutableLiveData().observe(this, registerInBool -> {
+            if (registerInBool) {
+                progressdialog.show();
+            } else {
+                progressdialog.hide();
+
             }
         });
     }

@@ -17,6 +17,8 @@ public class AppRepository {
     private Application application;
     private MutableLiveData<FirebaseUser> userMutableLiveData;
     private MutableLiveData<Boolean> logOutMutableLiveData;
+    private MutableLiveData<Boolean> logInProgressMutableLiveData;
+    private MutableLiveData<Boolean> registerInProgressMutableLiveData;
     private FirebaseAuth firebaseAuth;
 
 
@@ -27,6 +29,8 @@ public class AppRepository {
         this.firebaseAuth = FirebaseAuth.getInstance();
         userMutableLiveData = new MutableLiveData<>();
         logOutMutableLiveData = new MutableLiveData<>();
+        logInProgressMutableLiveData = new MutableLiveData<>();
+        registerInProgressMutableLiveData = new MutableLiveData<>();
 
         if(firebaseAuth.getCurrentUser()!=null){
             userMutableLiveData.postValue(firebaseAuth.getCurrentUser());
@@ -39,6 +43,7 @@ public class AppRepository {
                 .addOnCompleteListener(application.getMainExecutor(), task -> {
                     if (task.isSuccessful()) {
                         userMutableLiveData.postValue(firebaseAuth.getCurrentUser());
+                        registerInProgressMutableLiveData.postValue(true);
                     } else {
                         Toast.makeText(application, application.getString(R.string.error_string) + task.getException(), Toast.LENGTH_SHORT).show();
                     }
@@ -52,6 +57,7 @@ public class AppRepository {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             userMutableLiveData.postValue(firebaseAuth.getCurrentUser());
+                            logInProgressMutableLiveData.postValue(true);
                         } else {
                             Toast.makeText(application, application.getString(R.string.error_string) + task.getException(), Toast.LENGTH_SHORT).show();
                         }
@@ -64,6 +70,8 @@ public class AppRepository {
         logOutMutableLiveData.postValue(true);
     }
 
+    public MutableLiveData<Boolean> getLogInProgressMutableLiveData() {return logInProgressMutableLiveData;}
+    public MutableLiveData<Boolean> getRegisterInProgressMutableLiveData() {return registerInProgressMutableLiveData;}
     public MutableLiveData<FirebaseUser> getUserMutableLiveData() {return userMutableLiveData;}
     public MutableLiveData<Boolean> getLogOutMutableLiveData() {return logOutMutableLiveData;}
 

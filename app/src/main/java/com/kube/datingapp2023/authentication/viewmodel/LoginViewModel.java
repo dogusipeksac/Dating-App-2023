@@ -12,11 +12,13 @@ import com.kube.datingapp2023.authentication.model.AppRepository;
 public class LoginViewModel extends AndroidViewModel {
     private AppRepository appRepository;
     private MutableLiveData<FirebaseUser> userMutableLiveData;
+    private MutableLiveData<Boolean> logInProgressMutableLiveData;
 
     public LoginViewModel(@NonNull Application application) {
         super(application);
         appRepository=new AppRepository(application);
         userMutableLiveData=appRepository.getUserMutableLiveData();
+        logInProgressMutableLiveData=appRepository.getLogInProgressMutableLiveData();
     }
     public void login(String email,String password){
         appRepository.login(email,password);
@@ -25,4 +27,6 @@ public class LoginViewModel extends AndroidViewModel {
     public MutableLiveData<FirebaseUser> getUserMutableLiveData() {
         return userMutableLiveData;
     }
+
+    public MutableLiveData<Boolean> getLogInProgressMutableLiveData() {return logInProgressMutableLiveData;}
 }
