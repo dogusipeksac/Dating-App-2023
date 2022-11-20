@@ -2,16 +2,15 @@ package com.kube.datingapp2023.authentication.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.kube.datingapp2023.BaseActivity;
-import com.kube.datingapp2023.MainActivity;
 import com.kube.datingapp2023.authentication.viewmodel.LoginViewModel;
-import com.kube.datingapp2023.authentication.viewmodel.RegisterViewModel;
 import com.kube.datingapp2023.databinding.ActivityLoginBinding;
 
 public class LoginActivity extends BaseActivity {
@@ -54,6 +53,28 @@ public class LoginActivity extends BaseActivity {
            startActivity(new Intent(this,RegisterActivity.class));
         });
         binding.loginButton.setOnClickListener(view -> loginViewModel.login(binding.emailEt.getText().toString(), binding.passwordEt.getText().toString()));
+
+        binding.emailEt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence,int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (editable.length()>10){
+                    binding.emailEt.setError("No More!");
+                }
+                else{
+                    binding.emailEt.setError(null);
+                }
+            }
+        });
     }
 
 }

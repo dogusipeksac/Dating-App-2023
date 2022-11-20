@@ -9,38 +9,64 @@
     tools:context=".authentication.view.LoginActivity">
 
 
-    <EditText
-        android:layout_margin="5dp"
-        android:padding="10dp"
-        android:background="@drawable/rounded_edittext"
-        android:hint="@string/email_string"
-        android:id="@+id/email_et"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <EditText
 
-        android:layout_margin="5dp"
-        android:padding="10dp"
-        android:background="@drawable/rounded_edittext"
-        android:hint="@string/password_string"
-        android:id="@+id/password_et"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <com.google.android.material.textfield.TextInputLayout
+            app:startIconDrawable="@drawable/ic_email"
+            android:padding="5dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_margin="5dp"
+            app:counterEnabled="true"
+            app:counterMaxLength="10"
+            app:helperText="@string/mail_info_string"
+            app:helperTextTextColor="#000000"
+            android:layout_height="wrap_content">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email_et"
+                android:maxLength="10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/email_string"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:padding="5dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            app:endIconMode="password_toggle"
+            app:helperText="@string/password_info_string"
+            app:helperTextTextColor="#000000"
+            app:startIconDrawable="@drawable/ic_lock">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password_et"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="20"
+                android:hint="@string/password_string"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
     <Button
-        android:layout_margin="5dp"
-        android:padding="10dp"
-        android:background="@drawable/rounded_edittext"
         android:id="@+id/login_button"
-        android:text="@string/login_string"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/rounded_edittext"
+        android:padding="10dp"
+        android:text="@string/login_string" />
+
     <TextView
-        android:gravity="center"
-        android:textSize="20sp"
-        android:textColor="@color/black"
         android:id="@+id/register_tv"
-        android:text="@string/go_to_register_string"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/go_to_register_string"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
 
 </LinearLayout>

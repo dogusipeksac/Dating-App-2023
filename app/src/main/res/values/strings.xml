@@ -7,6 +7,8 @@
     <string name="register_string">Register</string>
     <string name="go_to_register_string">Go to register</string>
     <string name="go_to_login_string">Go to login</string>
-    <string name="sign_out_string">Sign Out</string>
+    <string name="sign_out_string">Sign</string>
+    <string name="mail_info_string">Lütfen mail adresinizi giriniz!</string>
+    <string name="password_info_string">Şifreniz en az 10 karaterden oluşmalı!</string>
 
 </resources>

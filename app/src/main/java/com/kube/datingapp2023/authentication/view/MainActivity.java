@@ -1,4 +1,4 @@
-package com.kube.datingapp2023;
+package com.kube.datingapp2023.authentication.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.google.firebase.auth.FirebaseUser;
+import com.kube.datingapp2023.BaseActivity;
 import com.kube.datingapp2023.authentication.view.LoginActivity;
 import com.kube.datingapp2023.authentication.view.RegisterActivity;
 import com.kube.datingapp2023.authentication.viewmodel.LoginViewModel;

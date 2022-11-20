@@ -63,7 +63,6 @@ public class AppRepository {
                         }
                     }
                 });
-
     }
     public void logOut(){
         firebaseAuth.signOut();

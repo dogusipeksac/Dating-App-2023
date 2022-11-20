@@ -3,13 +3,12 @@ package com.kube.datingapp2023.authentication.view;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.kube.datingapp2023.BaseActivity;
-import com.kube.datingapp2023.MainActivity;
 import com.kube.datingapp2023.authentication.viewmodel.RegisterViewModel;
 import com.kube.datingapp2023.databinding.ActivityRegisterBinding;
 
